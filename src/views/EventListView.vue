@@ -36,6 +36,9 @@
 
     <div class="pagination">
       <RouterLink id="page-prev" :to="{name: 'event-list', query: {page : page-1}}" rel="prev" v-if="page !=1">&#60; Prev</RouterLink>
+      <template v-for="page in Math.ceil(totalEvents / 2)" :key="page">
+        <RouterLink :to="{name: 'event-list', query: {page : page}}" :rel="`page-${page}`">{{ page }}</RouterLink>
+      </template>
       <RouterLink id="page-next" :to="{name: 'event-list', query: {page : page+1}}" rel="next" v-if="hasNextPage">Next &#62;</RouterLink>
     </div>
 
