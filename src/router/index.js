@@ -22,6 +22,10 @@ const router = createRouter({
       component: AboutView
     },
     {
+      path: '/about-us',
+      redirect: { name: 'about'}
+    },
+    {
       path: '/event/:id',
       name: 'event-layout',
       props: true,
