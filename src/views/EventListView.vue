@@ -3,6 +3,9 @@
   import EventService from '@/services/EventService.js';
   import EventCard from '@/components/EventCard.vue';
 
+  import { useRouter } from "vue-router"
+  const router = useRouter();
+
   const events = ref(null);
   const totalEvents = ref(0);
   const props = defineProps(['page']);
@@ -22,7 +25,7 @@
         totalEvents.value = response.headers['x-total-count'];
       })
       .catch((error)=>{
-        console.log(error);
+          router.push({name: 'NetworkError'})
       })
     });
   });

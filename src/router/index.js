@@ -5,6 +5,8 @@ import EventDetailsView from '../views/event/Details.vue'
 import EventLayout from '../views/event/Layout.vue'
 import EventEditView from '../views/event/Edit.vue'
 import EventRegisterView from '../views/event/Register.vue'
+import NotFound from '../views/NotFound.vue'
+import NetworkError from '../views/NetworkError.vue'
 
 
 const router = createRouter({
@@ -48,6 +50,22 @@ const router = createRouter({
         }
       ]
     },
+    {
+      path: '/:catchAll(.*)',
+      name: 'NotFound',
+      component: NotFound
+    },
+    {
+      path: '/404/:resource',
+      name: '404Resource',
+      component: NotFound,
+      props: true
+    },
+    {
+      path: '/network-error',
+      name: 'NetworkError',
+      component: NetworkError
+    }
   ]
 })
 
